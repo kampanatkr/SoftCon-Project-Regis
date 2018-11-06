@@ -3,11 +3,15 @@ package Model;
 public class Course {
     private String subjectName;
     private String subjectId;
+    private int year;
+    private int semester;
     private String difficultyLevel;
 
-    public Course(String subjectName, String subjectId, String level) {
+    public Course(String subjectName, String subjectId, int year, int semester, String level) {
         this.subjectName = subjectName;
         this.subjectId = subjectId;
+        this.year = year;
+        this.semester = semester;
         this.difficultyLevel = level;
     }
 
@@ -21,6 +25,14 @@ public class Course {
 
     public String getDifficultyLevel() {
         return difficultyLevel;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getSemester() {
+        return semester;
     }
 
     public boolean isPassed(){
