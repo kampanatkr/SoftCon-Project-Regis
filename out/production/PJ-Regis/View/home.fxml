@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -9,10 +11,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <center>
-      <TextArea fx:id="showCourseTextArea" prefHeight="248.0" prefWidth="421.0" promptText="Show Course" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="showCourseTextArea" editable="false" prefHeight="248.0" prefWidth="421.0" promptText="Show Course" wrapText="true" BorderPane.alignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextArea>
    </center>
    <top>
       <Label fx:id="titleHomeLabel" alignment="CENTER" prefHeight="64.0" prefWidth="432.0" text="Check Registration" BorderPane.alignment="CENTER">
@@ -36,14 +40,19 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="courseTextField" promptText="Course ID" text="Course ID :" GridPane.columnIndex="2" />
-                  <TextField fx:id="yearTextField" promptText="Year" text="Year :" />
-                  <TextField fx:id="semesterTextField" promptText="Semester" text="Semester : " GridPane.columnIndex="1" />
+                  <TextField fx:id="courseTextField" alignment="CENTER" focusTraversable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" promptText="Course ID" translateX="60.0" GridPane.columnIndex="2" />
+                  <TextField fx:id="yearTextField" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="Year" translateX="50.0" />
+                  <TextField fx:id="semesterTextField" alignment="CENTER" focusTraversable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" promptText="Semester" translateX="58.0" GridPane.columnIndex="1" />
+                  <Button fx:id="searchCourseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressSearchButton" prefHeight="25.0" prefWidth="92.0" text="Search" translateX="30.0" GridPane.columnIndex="3" />
+                  <Label text="Year : " translateX="10.0" />
+                  <Label text="Semester :" translateX="1.0" GridPane.columnIndex="1" />
+                  <Label text="Course ID :" GridPane.columnIndex="2" />
                </children>
             </GridPane>
             <Label fx:id="commandLabel" alignment="CENTER" prefHeight="17.0" prefWidth="601.0" text="Please enter your information.">

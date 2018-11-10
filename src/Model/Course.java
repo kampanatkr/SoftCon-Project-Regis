@@ -39,4 +39,13 @@ public class Course {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return  "Subject Id='" + subjectId + '\'' +
+                " Subject Name='" + subjectName + '\'' +
+                " year=" + year +
+                " semester=" + semester +
+                " difficultyLevel='" + difficultyLevel + '\'' +
+                "\n";
+    }
 }

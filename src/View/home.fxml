@@ -48,10 +48,10 @@
                <children>
                   <TextField fx:id="courseTextField" alignment="CENTER" focusTraversable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" promptText="Course ID" translateX="60.0" GridPane.columnIndex="2" />
                   <TextField fx:id="yearTextField" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="Year" translateX="50.0" />
-                  <TextField fx:id="semesterTextField" alignment="CENTER" focusTraversable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" promptText="Semester" translateX="50.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="semesterTextField" alignment="CENTER" focusTraversable="false" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" promptText="Semester" translateX="58.0" GridPane.columnIndex="1" />
                   <Button fx:id="searchCourseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressSearchButton" prefHeight="25.0" prefWidth="92.0" text="Search" translateX="30.0" GridPane.columnIndex="3" />
                   <Label text="Year : " translateX="10.0" />
-                  <Label text="Year : " translateX="10.0" GridPane.columnIndex="1" />
+                  <Label text="Semester :" translateX="1.0" GridPane.columnIndex="1" />
                   <Label text="Course ID :" GridPane.columnIndex="2" />
                </children>
             </GridPane>

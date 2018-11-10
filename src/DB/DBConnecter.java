@@ -1,4 +1,4 @@
-package DBConnecter;
+package DB;
 
 import Model.Course;
 
@@ -10,7 +10,7 @@ public class DBConnecter {
     private String url = "jdbc:sqlite:course.db";
     private Connection connection;
 
-    public void connect() {
+    public Connection connect() {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(url);
@@ -22,6 +22,7 @@ public class DBConnecter {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+        return connection;
     }
 
     public List<Course> getCourse() {
