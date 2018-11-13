@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,12 +12,6 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
-   <center>
-      <TextArea fx:id="showCourseTextArea" editable="false" prefHeight="248.0" prefWidth="421.0" promptText="Show Course" wrapText="true" BorderPane.alignment="CENTER">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></TextArea>
-   </center>
    <top>
       <Label fx:id="titleHomeLabel" alignment="CENTER" prefHeight="64.0" prefWidth="432.0" text="Check Registration" BorderPane.alignment="CENTER">
          <font>
@@ -63,4 +57,15 @@
          </children>
       </GridPane>
    </bottom>
+   <center>
+      <TableView fx:id="showCourseTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="courseIdColumn" editable="false" prefWidth="123.0" text="Course ID" />
+          <TableColumn fx:id="courseNameColumn" editable="false" prefWidth="295.0" text="Course Name" />
+            <TableColumn fx:id="yearColumn" editable="false" prefWidth="59.0" text="Year" />
+            <TableColumn fx:id="semesterColumn" editable="false" minWidth="0.0" prefWidth="60.0" text="Semester" />
+            <TableColumn fx:id="levelColumn" editable="false" minWidth="0.0" prefWidth="62.0" resizable="false" text="Level" />
+        </columns>
+      </TableView>
+   </center>
 </BorderPane>

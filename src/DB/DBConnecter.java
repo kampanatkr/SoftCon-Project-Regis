@@ -35,7 +35,7 @@ public class DBConnecter {
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()) {
-                    String courseID = "0"+resultSet.getString("courseID");
+                    String courseID = "0" + resultSet.getString("courseID");
                     String courseName = resultSet.getString("courseName");
                     int year = resultSet.getInt("year");
                     int semester = resultSet.getInt("semester");
@@ -51,7 +51,11 @@ public class DBConnecter {
 
                     Course course = new Course(courseName, courseID, year, semester, level);
                     courses.add(course);
-                    System.out.println("add course " + courseID);
+                    System.out.println("add course " + courseID
+                            + " " + courseName
+                            + " " + year
+                            + " " + semester
+                            + " " + level);
                 }
             }
         } catch (SQLException e) {
