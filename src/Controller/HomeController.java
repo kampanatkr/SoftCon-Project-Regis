@@ -13,33 +13,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeController {
+    @FXML protected TableView<Course> showCourseTableView;
+    @FXML protected TableColumn<Course, String> courseIdColumn;
+    @FXML protected TableColumn<Course, String> courseNameColumn;
+    @FXML protected TableColumn<Course, Integer> yearColumn;
+    @FXML protected TableColumn<Course, Integer> semesterColumn;
+    @FXML protected TableColumn<Course, String> levelColumn;
+    @FXML protected Label titleHomeLabel;
+    @FXML protected Label commandLabel;
+    @FXML protected Label addOrRemoveLabel;
+    @FXML protected TextField courseTextField;
+    @FXML protected TextField semesterTextField;
+    @FXML protected TextField yearTextField;
+    @FXML protected TextField addCourseTextField;
+    @FXML protected Button searchCourseButton;
+    @FXML protected Button addButton;
+    @FXML protected Button removeButton;
+
     private Connection connection;
     private DBConnecter dbConnecter = new DBConnecter();
-
-    @FXML
-    protected TableView<Course> showCourseTableView;
-    @FXML
-    protected TableColumn<Course, String> courseIdColumn;
-    @FXML
-    protected TableColumn<Course, String> courseNameColumn;
-    @FXML
-    protected TableColumn<Course, Integer> yearColumn;
-    @FXML
-    protected TableColumn<Course, Integer> semesterColumn;
-    @FXML
-    protected TableColumn<Course, String> levelColumn;
-    @FXML
-    protected Label titleHomeLabel;
-    @FXML
-    protected Label commandLabel;
-    @FXML
-    protected TextField courseTextField;
-    @FXML
-    protected TextField semesterTextField;
-    @FXML
-    protected TextField yearTextField;
-    @FXML
-    protected Button searchCourseButton;
 
     private String year;
     private String semester;
@@ -50,7 +42,6 @@ public class HomeController {
 
     public void initialize() {
         initColumn();
-        DBConnecter dbConnecter = new DBConnecter();
         connection = dbConnecter.connect();
         courseList = dbConnecter.getCourse();
     }
@@ -64,23 +55,17 @@ public class HomeController {
         if (point.equals("year")) {
             for (int i =0; i < courseList.size(); i++) {
                 int c = courseList.get(i).getYear();
-                if (c != Integer.parseInt(year)) {
-                    System.out.println(courseList.get(i).getSubjectId()
-                            + courseList.get(i).getSubjectName()
-                            + courseList.get(i).getYear());
-                }else{
+                if (c == Integer.parseInt(year)) {
                     courses.add(courseList.get(i));
+                    System.out.println(courseList.get(i).getSubjectId());
                 }
             }
         } else if (point.equals("semester")) {
             for (int i =0; i < courseList.size(); i++) {
                 int c = courseList.get(i).getSemester();
                 if (c == Integer.parseInt(semester)) {
-                    System.out.println(courseList.get(i).getSubjectId()
-                            + courseList.get(i).getSubjectName()
-                            + courseList.get(i).getSemester());
-                }else{
                     courses.add(courseList.get(i));
+                    System.out.println(courseList.get(i).getSubjectId());
                 }
             }
         } else if (point.equals("yearandsemester")) {
@@ -88,21 +73,16 @@ public class HomeController {
                 int c = courseList.get(i).getYear();
                 int d = courseList.get(i).getSemester();
                 if (c == Integer.parseInt(year) && d == Integer.parseInt(semester)) {
-                    System.out.println(courseList.get(i).getSubjectId()
-                            + courseList.get(i).getSubjectName()
-                            + courseList.get(i).getYear()
-                            + courseList.get(i).getSemester());
-                }else{
                     courses.add(courseList.get(i));
+                    System.out.println(courseList.get(i).getSubjectId());
                 }
             }
         } else if (point.equals("id")) {
             for (int i =0; i < courseList.size(); i++) {
                 String c = courseList.get(i).getSubjectId();
                 if (c.equals(courseId)) {
-                    System.out.println(courseList.get(i).getSubjectId() + courseList.get(i).getSubjectName());
-                }else{
                     courses.add(courseList.get(i));
+                    System.out.println(courseList.get(i).getSubjectId());
                 }
             }
         }
@@ -111,6 +91,7 @@ public class HomeController {
 
     @FXML
     public void pressSearchButton() {
+        courses.clear();
         year = yearTextField.getText();
         semester = semesterTextField.getText();
         courseId = courseTextField.getText();
@@ -129,6 +110,16 @@ public class HomeController {
         }
         initData();
         System.out.println("searching...");
+    }
+
+    @FXML
+    public void handlerAddCourseButton(){
+
+    }
+
+    @FXML
+    public void handlerRemoveCourseButton(){
+
     }
 
     public void initData() {

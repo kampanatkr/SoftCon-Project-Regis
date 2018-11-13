@@ -51,8 +51,7 @@ public class DBConnecter {
 
                     Course course = new Course(courseName, courseID, year, semester, level);
                     courses.add(course);
-                    System.out.println("add course " + courseID
-                            + " " + courseName
+                    System.out.println("add " + courseID
                             + " " + year
                             + " " + semester
                             + " " + level);
