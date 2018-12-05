@@ -33,6 +33,7 @@ public class DBConnecter {
                 String sql = "select * from courseTable";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
+                int i=0;
 
                 while (resultSet.next()) {
                     String courseID = "0" + resultSet.getString("courseID");
@@ -51,11 +52,9 @@ public class DBConnecter {
 
                     Course course = new Course(courseName, courseID, year, semester, level);
                     courses.add(course);
-                    System.out.println("add " + courseID
-                            + " " + year
-                            + " " + semester
-                            + " " + level);
+                    i++;
                 }
+                System.out.println("i = " + i);
             }
         } catch (SQLException e) {
             e.printStackTrace();
